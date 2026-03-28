@@ -1,0 +1,47 @@
+backend:
+  name: git-gateway
+    branch: main
+
+    locale: 'ja'
+
+    media_folder: "images"
+    public_folder: "/images"
+
+    collections:
+      - name: "plans"
+          label: "登山企画"
+              folder: "content/plans"
+                  create: true
+                      slug: "{{slug}}"
+                          fields:
+                                - { label: "企画名", name: "title", widget: "string" }
+                                      - label: "ステータス"
+                                              name: "status"
+                                                      widget: "select"
+                                                              options:
+                                                                        - { label: "募集中 (OPEN)", value: "open" }
+                                                                                  - { label: "予定 (PLANNED)", value: "planned" }
+                                                                                            - { label: "募集終了 (CLOSED)", value: "closed" }
+                                                                                                  - { label: "日程・期間", name: "date", widget: "string", hint: "例: 2025年7月18日〜21日 / 4日間" }
+                                                                                                        - { label: "説明文", name: "body", widget: "text" }
+                                                                                                              - label: "タグ（難易度・宿泊など）"
+                                                                                                                      name: "tags"
+                                                                                                                              widget: "list"
+                                                                                                                                      field: { label: "タグ", name: "tag", widget: "string" }
+                                                                                                                                      
+                                                                                                                                        - name: "profile"
+                                                                                                                                            label: "プロフィール"
+                                                                                                                                                files:
+                                                                                                                                                      - label: "基本情報"
+                                                                                                                                                              name: "profile"
+                                                                                                                                                                      file: "content/profile.md"
+                                                                                                                                                                              fields:
+                                                                                                                                                                                        - { label: "氏名（日本語）", name: "name_ja", widget: "string" }
+                                                                                                                                                                                                  - { label: "氏名（ローマ字）", name: "name_en", widget: "string" }
+                                                                                                                                                                                                            - { label: "自己紹介文", name: "bio", widget: "text" }
+                                                                                                                                                                                                                      - { label: "実績①ラベル", name: "stat1_label", widget: "string" }
+                                                                                                                                                                                                                                - { label: "実績①数値", name: "stat1_value", widget: "string" }
+                                                                                                                                                                                                                                          - { label: "実績②ラベル", name: "stat2_label", widget: "string" }
+                                                                                                                                                                                                                                                    - { label: "実績②数値", name: "stat2_value", widget: "string" }
+                                                                                                                                                                                                                                                              - { label: "実績③ラベル", name: "stat3_label", widget: "string" }
+                                                                                                                                                                                                                                                                        - { label: "実績③数値", name: "stat3_value", widget: "string" }
